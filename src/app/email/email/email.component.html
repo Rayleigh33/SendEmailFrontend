@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Send an Email</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="sendEmail()" #emailForm="ngForm">
+        <div class="mb-3">
+          <label for="to" class="form-label">To:</label>
+          <input
+            type="email"
+            id="to"
+            name="to"
+            [(ngModel)]="email.to"
+            class="form-control"
+            placeholder="Enter recipient's email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="subject" class="form-label">Subject:</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            [(ngModel)]="email.subject"
+            class="form-control"
+            placeholder="Enter email subject"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Body:</label>
+          <textarea
+            id="body"
+            name="body"
+            [(ngModel)]="email.body"
+            class="form-control"
+            placeholder="Write your message here"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <div class="d-grid">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="emailForm.invalid"
+          >
+            Send Email
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
